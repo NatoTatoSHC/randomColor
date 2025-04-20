@@ -1,0 +1,18 @@
+<html>
+    <head></head>
+    <body>
+        <button id="butt">Press Me</button>
+        <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+        <script>
+            
+            var socket = io();
+            document.getElementById('butt').addEventListener("click", function() {
+                socket.emit('pressed');
+            });
+            socket.on('pressed', function() {
+                var newcolor = [Math.round(Math.random()*255), Math.round(Math.random()*255), Math.round(Math.random()*255)];
+                document.body.style = "background-color: rgb("+newcolor[0]+", "+newcolor[1]+", "+newcolor[2]+");"
+            });
+        </script>
+    </body>
+</html>
