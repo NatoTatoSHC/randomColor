@@ -18,6 +18,4 @@ io.on('connection', (socket) => {
         console.log('a user disconncted');
     });
 });
-server.listen(3000, () => {
-    console.log("listning on *:3000");
-});
+app.listen(3000, '0.0.0.0');
