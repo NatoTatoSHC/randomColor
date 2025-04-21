@@ -3,6 +3,7 @@ var app = express();
 var http = require('http');
 var server = http.createServer(app);
 var { Server } = require('socket.io');
+var os = require('os');
 var io = new Server(server);
 
 app.get('/', (req, res) => {
@@ -18,4 +19,6 @@ io.on('connection', (socket) => {
         console.log('a user disconncted');
     });
 });
-app.listen(3000, '0.0.0.0');
+server.listen(3000, () => {
+    console.log("listning on "+os.hostname()+" :3000");
+});
